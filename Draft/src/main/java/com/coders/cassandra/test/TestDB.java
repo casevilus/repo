@@ -33,7 +33,6 @@ public class TestDB {
 		updater.setLong("time", System.currentTimeMillis());
 		updater.setDate("aaa", new Date());
 
-		System.out.println();
 		try {
 		    template.update(updater);
 		} catch (HectorException e) {
