@@ -1,0 +1,25 @@
+keyspaces:
+- name: Hotelier
+replica_placement_strategy: org.apache.cassandra.locator.RackUnawareStrategy
+replication_factor: 1
+column_families:
+- name: Hotel
+compare_with: UTF8Type
+- name: HotelByCity
+compare_with: UTF8Type
+- name: Guest
+compare_with: BytesType
+- name: Reservation
+compare_with: TimeUUIDType
+- name: PointOfInterest
+column_type: Super
+compare_with: UTF8Type
+compare_subcolumns_with: UTF8Type
+- name: Room
+column_type: Super
+compare_with: BytesType
+compare_subcolumns_with: BytesType
+- name: RoomAvailability
+column_type: Super
+compare_with: BytesType
+compare_subcolumns_with: BytesType

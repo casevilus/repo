@@ -1,0 +1,114 @@
+create keyspace Hotelier
+  with placement_strategy = 'SimpleStrategy'
+  and strategy_options = {replication_factor : 1}
+  and durable_writes = true;
+
+use Hotelier;
+
+create column family Guest
+  with column_type = 'Standard'
+  and comparator = 'BytesType'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+create column family Hotel
+  with column_type = 'Standard'
+  and comparator = 'UTF8Type'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+create column family HotelByCity
+  with column_type = 'Standard'
+  and comparator = 'UTF8Type'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+create column family PointOfInterest
+  with column_type = 'Super'
+  and comparator = 'UTF8Type'
+  and subcomparator = 'BytesType'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+create column family Reservation
+  with column_type = 'Standard'
+  and comparator = 'TimeUUIDType'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+create column family Room
+  with column_type = 'Super'
+  and comparator = 'BytesType'
+  and subcomparator = 'BytesType'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+create column family RoomAvailability
+  with column_type = 'Super'
+  and comparator = 'BytesType'
+  and subcomparator = 'BytesType'
+  and default_validation_class = 'BytesType'
+  and key_validation_class = 'BytesType'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 864000
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
